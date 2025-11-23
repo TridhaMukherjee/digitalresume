@@ -1,0 +1,830 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tridha Mukherjee | Data Analyst</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0f0f1a; /* Darker Indigo */
+            --bg-card: #1a1a2e; /* Card Background */
+            --accent-green: #0f4c3a; /* Emerald */
+            --accent-lilac: #bbbdf6; /* Soft Lilac */
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Creative Shapes --- */
+        .shape-arch {
+            border-radius: 50% 50% 0 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- Soap Bubble Animation --- */
+        .shape-bubble {
+            background: rgba(76, 76, 138, 0.15); /* Transparent Purple */
+            backdrop-filter: blur(8px); /* Frosted Glass Effect */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 63% 37% 30% 70% / 50% 45% 55% 50%;
+            animation: bubble-float 8s ease-in-out infinite, bubble-wobble 10s ease-in-out infinite;
+            transition: all 0.4s ease;
+        }
+
+            .shape-bubble:hover {
+                background: rgba(76, 76, 138, 0.3);
+                transform: scale(1.05);
+                border-color: var(--accent-lilac);
+            }
+
+        /* Skill Bubbles Specifics */
+        .skill-bubble {
+            aspect-ratio: 1/1; /* Force Square-ish shape */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Animation Delays for Randomness */
+        .delay-0 {
+            animation-delay: 0s;
+        }
+
+        .delay-1 {
+            animation-delay: -1.5s;
+        }
+
+        .delay-2 {
+            animation-delay: -3s;
+        }
+
+        .delay-3 {
+            animation-delay: -4.5s;
+        }
+
+        .delay-4 {
+            animation-delay: -2s;
+        }
+
+        .delay-5 {
+            animation-delay: -5s;
+        }
+
+        .delay-6 {
+            animation-delay: -1s;
+        }
+
+        .delay-7 {
+            animation-delay: -3.5s;
+        }
+
+        .delay-8 {
+            animation-delay: -0.5s;
+        }
+
+        @keyframes bubble-float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes bubble-wobble {
+            0% {
+                border-radius: 63% 37% 30% 70% / 50% 45% 55% 50%;
+            }
+
+            33% {
+                border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%;
+            }
+
+            66% {
+                border-radius: 55% 45% 40% 60% / 60% 30% 70% 40%;
+            }
+
+            100% {
+                border-radius: 63% 37% 30% 70% / 50% 45% 55% 50%;
+            }
+        }
+
+        /* --- Advanced Animations (Apple Style) --- */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+            .reveal-section.active {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        /* Staggered children animation */
+        .stagger-parent .stagger-child {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stagger-parent.active .stagger-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+            .stagger-parent.active .stagger-child:nth-child(1) {
+                transition-delay: 100ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(2) {
+                transition-delay: 200ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(3) {
+                transition-delay: 300ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(4) {
+                transition-delay: 400ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(5) {
+                transition-delay: 500ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(6) {
+                transition-delay: 600ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(7) {
+                transition-delay: 700ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(8) {
+                transition-delay: 800ms;
+            }
+
+            .stagger-parent.active .stagger-child:nth-child(9) {
+                transition-delay: 900ms;
+            }
+
+        /* --- Glassmorphism Cards (for other sections) --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* --- Read More Transition --- */
+        .job-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+        }
+
+            .job-details.expanded {
+                max-height: 1000px;
+                opacity: 1;
+                transition: max-height 0.8s ease-in, opacity 0.5s ease-in;
+            }
+
+        /* --- Form Styling --- */
+        .bubble-input {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+            .bubble-input:focus {
+                outline: none;
+                background: rgba(255,255,255,0.2);
+                border-color: var(--accent-lilac);
+            }
+
+            .bubble-input::placeholder {
+                color: rgba(255,255,255,0.6);
+            }
+
+            .bubble-input:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--accent-lilac);
+            }
+    </style>
+</head>
+<body class="selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-6 mix-blend-difference transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter hover:text-indigo-300 transition-colors">TRIDHA.</a>
+
+            <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-[0.2em]">
+                <a href="#about" class="hover:text-indigo-300 transition-colors relative group">About<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-300 transition-all group-hover:w-full"></span></a>
+                <a href="#skills" class="hover:text-indigo-300 transition-colors relative group">Skills<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-300 transition-all group-hover:w-full"></span></a>
+                <a href="#experience" class="hover:text-indigo-300 transition-colors relative group">Experience<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-300 transition-all group-hover:w-full"></span></a>
+                <a href="#projects" class="hover:text-indigo-300 transition-colors relative group">Projects<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-300 transition-all group-hover:w-full"></span></a>
+            </div>
+
+            <a href="#contact" class="hidden md:block bg-white text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#bbbdf6] hover:scale-105 transition-all">Let's Talk</a>
+            <button class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+
+        <!-- Background Image Layer -->
+        <div class="absolute top-24 left-0 right-0 bottom-48 z-0 flex justify-center items-center pointer-events-none">
+            <img src="Imagesdigitslresum\resumeimage.jpg"
+                 alt="Tridha Mukherjee"
+                 class="w-full h-full md:w-[800px] object-contain opacity-50 mask-image-gradient">
+
+            <!-- Gradient Mask -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-dark)] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[var(--bg-dark)] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[var(--bg-dark)] via-transparent to-[var(--bg-dark)]"></div>
+        </div>
+
+        <!-- Animated Background Blobs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[100px] animate-pulse z-0"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-emerald-900/20 rounded-full blur-[80px] animate-pulse z-0" style="animation-delay: 1s;"></div>
+
+        <!-- Content Overlay -->
+        <div class="max-w-5xl mx-auto text-center z-10 stagger-parent active relative" id="hero-content">
+
+            <h2 class="stagger-child text-sm md:text-base text-[#bbbdf6] font-bold tracking-[0.4em] uppercase mb-6 drop-shadow-lg">
+                Data Analyst & Strategist
+            </h2>
+
+            <h1 class="stagger-child text-5xl md:text-8xl font-serif leading-tight mb-8 bg-gradient-to-br from-white via-gray-200 to-gray-400 bg-clip-text text-transparent drop-shadow-2xl">
+                Turning Complexity<br>
+                <span class="italic font-light text-gray-300">Into Clarity.</span>
+            </h1>
+
+            <p class="stagger-child text-white text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-lg">
+                Hi, I'm <strong>Tridha Mukherjee</strong>. I bridge the gap between raw data and business strategy using SQL, Python, and interactive visualizations.
+            </p>
+
+            <!-- Buttons -->
+            <div class="stagger-child flex flex-col md:flex-row gap-4 justify-center items-center relative z-20 mt-10">
+                <a href="#projects" class="px-8 py-3 bg-[#bbbdf6] text-indigo-950 font-bold rounded-full hover:bg-white transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(187,189,246,0.3)]">
+                    View My Work
+                </a>
+                <a href="https://www.linkedin.com/in/tridhamukherjee/" target="_blank" class="px-8 py-3 border border-gray-400 text-white rounded-full hover:border-white hover:bg-white/10 transition-all flex items-center gap-2 bg-black/30 backdrop-blur-sm">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/TridhaMukherjee" target="_blank" class="px-8 py-3 border border-gray-400 text-white rounded-full hover:border-white hover:bg-white/10 transition-all flex items-center gap-2 bg-black/30 backdrop-blur-sm">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 z-10">
+            <i class="fas fa-arrow-down text-white text-xl"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <!-- Image Frame (Arch) -->
+            <div class="reveal-section relative group">
+                <div class="shape-arch bg-gradient-to-b from-[#0f4c3a] to-transparent p-2 md:p-4 transition-transform duration-700 group-hover:scale-[1.02]">
+                    <div class="shape-arch overflow-hidden h-[400px] md:h-[500px] relative">
+                        <img src="Imagesdigitslresum\katypic.jpg"
+                             alt="Tridha Mukherjee"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+                    </div>
+                </div>
+                <div class="absolute -z-10 top-20 -left-10 w-40 h-40 bg-[#bbbdf6] rounded-full blur-[60px] opacity-20"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="reveal-section stagger-parent">
+                <h2 class="stagger-child text-4xl md:text-5xl font-serif mb-8">Data-Driven Problem Solver.</h2>
+                <div class="stagger-child space-y-6 text-gray-400 text-lg leading-relaxed">
+                    <p>
+                        I specialize in <strong class="text-white">ETL pipelines, data modeling, and dashboard development</strong> across banking, e-commerce, and SaaS sectors.
+                    </p>
+                    <p>
+                        Currently, I analyze user interactions for core banking platforms (Fiserv, Encore), ensuring compliance and optimizing user journeys. My strength lies not just in analysis, but in automation—using Python for web scraping and competitive intelligence.
+                    </p>
+                    <p>
+                        With a background in Engineering and Full-Stack Development (C#, React), I possess the unique ability to speak the language of both data engineers and product managers.
+                    </p>
+                </div>
+
+                <div class="stagger-child grid grid-cols-3 gap-6 mt-10 border-t border-gray-800 pt-8">
+                    <div>
+                        <h4 class="text-3xl font-serif text-[#bbbdf6]">5+</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mt-1">Years Exp.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-serif text-[#bbbdf6]">SQL</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mt-1">Specialist</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-serif text-[#bbbdf6]">ETL</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mt-1">Pipelines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-24 bg-[#131323] px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-section">
+                <h2 class="text-4xl md:text-5xl font-serif mt-2">Technical Skills</h2>
+            </div>
+
+            <!-- Grid expanded to 3 columns for all skills -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 stagger-parent reveal-section">
+
+                <!-- Bubble 1: Programming -->
+                <div class="stagger-child shape-bubble skill-bubble delay-0">
+                    <div class="w-10 h-10 bg-blue-900/30 rounded-full flex items-center justify-center mb-4 text-blue-400 shadow-[0_0_15px_rgba(96,165,250,0.3)]">
+                        <i class="fas fa-code text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Programming</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">Python</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">R</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">SQL</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Java</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">C#</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 2: Web Technologies -->
+                <div class="stagger-child shape-bubble skill-bubble delay-1">
+                    <div class="w-10 h-10 bg-orange-900/30 rounded-full flex items-center justify-center mb-4 text-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.3)]">
+                        <i class="fab fa-html5 text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Web Tech</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">HTML5/CSS3</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">React</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">JS (ES6)</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Bootstrap</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">ASP.NET</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 3: Data Engineering -->
+                <div class="stagger-child shape-bubble skill-bubble delay-2">
+                    <div class="w-10 h-10 bg-emerald-900/30 rounded-full flex items-center justify-center mb-4 text-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.3)]">
+                        <i class="fas fa-cogs text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Data Engineering</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">ETL Pipelines</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Data Modeling</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Stored Procedures</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Query Opt.</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 4: Databases -->
+                <div class="stagger-child shape-bubble skill-bubble delay-3">
+                    <div class="w-10 h-10 bg-indigo-900/30 rounded-full flex items-center justify-center mb-4 text-indigo-400 shadow-[0_0_15px_rgba(129,140,248,0.3)]">
+                        <i class="fas fa-database text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Databases</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">MS SQL Server</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">MySQL</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Data Warehousing</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 5: Data Science -->
+                <div class="stagger-child shape-bubble skill-bubble delay-4">
+                    <div class="w-10 h-10 bg-purple-900/30 rounded-full flex items-center justify-center mb-4 text-purple-400 shadow-[0_0_15px_rgba(167,139,250,0.3)]">
+                        <i class="fas fa-brain text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Data Science</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">Pandas</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">NumPy</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Scikit-Learn</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Matplotlib</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Statistics</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 6: Visualization -->
+                <div class="stagger-child shape-bubble skill-bubble delay-5">
+                    <div class="w-10 h-10 bg-pink-900/30 rounded-full flex items-center justify-center mb-4 text-pink-400 shadow-[0_0_15px_rgba(244,114,182,0.3)]">
+                        <i class="fas fa-chart-pie text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Visualization</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">Power BI</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Tableau</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Excel Power Query</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 7: Tools & IDEs -->
+                <div class="stagger-child shape-bubble skill-bubble delay-6">
+                    <div class="w-10 h-10 bg-yellow-900/30 rounded-full flex items-center justify-center mb-4 text-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.3)]">
+                        <i class="fas fa-tools text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Tools & IDEs</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">VS Code</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Visual Studio</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Jupyter</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Anaconda</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">IIS</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 8: Version Control -->
+                <div class="stagger-child shape-bubble skill-bubble delay-7">
+                    <div class="w-10 h-10 bg-gray-700/30 rounded-full flex items-center justify-center mb-4 text-gray-300 shadow-[0_0_15px_rgba(209,213,219,0.3)]">
+                        <i class="fab fa-git-alt text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Version Control</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">Git</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">GitHub</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Branching</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Merging</span>
+                    </div>
+                </div>
+
+                <!-- Bubble 9: Testing & QA -->
+                <div class="stagger-child shape-bubble skill-bubble delay-8">
+                    <div class="w-10 h-10 bg-red-900/30 rounded-full flex items-center justify-center mb-4 text-red-400 shadow-[0_0_15px_rgba(248,113,113,0.3)]">
+                        <i class="fas fa-bug text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">QA Testing</h3>
+                    <div class="flex flex-wrap justify-center gap-1.5">
+                        <span class="text-xs text-gray-300">Unit Testing</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Regression</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">Cross-Browser</span>
+                        <span class="text-xs text-gray-500">•</span>
+                        <span class="text-xs text-gray-300">UAT</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Read More) -->
+    <section id="experience" class="py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-serif mb-16 text-center reveal-section">Professional Journey</h2>
+
+            <div class="space-y-12">
+
+                <!-- Job 1 -->
+                <div class="reveal-section flex flex-col md:flex-row gap-6 md:gap-10 border-l-2 border-indigo-900 pl-8 relative pb-4">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#bbbdf6] shadow-[0_0_10px_#bbbdf6]"></span>
+                    <div class="md:w-1/3">
+                        <h4 class="text-xl font-bold text-white">Central Bank of St. Louis</h4>
+                        <p class="text-[#bbbdf6] font-medium mt-1">Data Analyst</p>
+                        <p class="text-gray-500 text-sm mt-1">Aug 2025 – Present</p>
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-gray-400 mb-3">Extracted, cleaned, and analyzed user interaction data from core banking platforms (Fiserv, Encore) to optimize user journeys.</p>
+
+                        <!-- Hidden Details -->
+                        <div class="job-details text-sm text-gray-500 space-y-2 pl-4 border-l border-gray-700 mb-3">
+                            <p>• Developed and maintained reports using SQL and advanced Excel (PivotTables, VLOOKUP, Power Query) to track key performance indicators.</p>
+                            <p>• Collaborated with designers, back-end developers, and compliance teams to translate business requirements into dashboards using Power BI.</p>
+                            <p>• Performed data-driven compliance analysis to monitor adherence to banking regulations (KYC, AML, OFAC, Reg E).</p>
+                            <p>• Conducted data-driven audits for ADA/WCAG compliance, analyzing user metrics to ensure accessible digital experiences.</p>
+                            <p>• Participated in software upgrades, system testing, and digital banking rollouts, partnering with IT and compliance teams.</p>
+                            <p>• Skilled in retail employee training, process improvement, and cross-functional collaboration.</p>
+                        </div>
+                        <button class="text-xs font-bold text-indigo-400 uppercase tracking-widest hover:text-white transition-colors focus:outline-none toggle-btn">Read More</button>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="reveal-section flex flex-col md:flex-row gap-6 md:gap-10 border-l-2 border-indigo-900 pl-8 relative pb-4">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600"></span>
+                    <div class="md:w-1/3">
+                        <h4 class="text-xl font-bold text-white">Changing the Present</h4>
+                        <p class="text-[#bbbdf6] font-medium mt-1">Full-Stack Dev & Analyst</p>
+                        <p class="text-gray-500 text-sm mt-1">Nov 2020 – Aug 2025</p>
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-gray-400 mb-3">Maintained an e-commerce website (changingthepresent.org) using C#, ASP.NET, HTML, CSS, JavaScript, MySQL, and Bootstrap.</p>
+
+                        <div class="job-details text-sm text-gray-500 space-y-2 pl-4 border-l border-gray-700 mb-3">
+                            <p>• Utilized Git for version control, ensuring smooth collaboration within the development team.</p>
+                            <p>• Implemented Python-based web scraping using BeautifulSoup and Requests for data extraction.</p>
+                            <p>• Conducted code reviews and performed debugging using Visual Studio to identify and resolve front-end issues.</p>
+                            <p>• Utilized Excel and MySQL for data processing, visualization, and business intelligence reporting.</p>
+                            <p>• Used Power BI to create interactive dashboards for insight into business performance.</p>
+                            <p>• Performed unit testing, integration testing, system testing, cross-browser testing, and user acceptance testing (UAT).</p>
+                            <p>• Designed and optimized ETL workflows to automate data extraction into MySQL databases.</p>
+                            <p>• Created stored procedures, views, and indexing strategies to enhance query performance.</p>
+                        </div>
+                        <button class="text-xs font-bold text-indigo-400 uppercase tracking-widest hover:text-white transition-colors focus:outline-none toggle-btn">Read More</button>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="reveal-section flex flex-col md:flex-row gap-6 md:gap-10 border-l-2 border-indigo-900 pl-8 relative pb-4">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-800"></span>
+                    <div class="md:w-1/3">
+                        <h4 class="text-xl font-bold text-white">Agnik</h4>
+                        <p class="text-[#bbbdf6] font-medium mt-1">Front-end Dev & DBA</p>
+                        <p class="text-gray-500 text-sm mt-1">Apr 2019 – Dec 2019</p>
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-gray-400 mb-3">Developed responsive and user-friendly web interfaces for Vyncs (vyncs.com) using HTML5, CSS3, and JavaScript.</p>
+
+                        <div class="job-details text-sm text-gray-500 space-y-2 pl-4 border-l border-gray-700 mb-3">
+                            <p>• Collaborated with UI designers and backend developers to implement front-end functionality.</p>
+                            <p>• Conducted code reviews and performed debugging using Visual Studio.</p>
+                            <p>• Utilized Git for version control, efficiently managing the codebase.</p>
+                            <p>• Actively participated in agile development processes, including sprint planning and daily stand-ups.</p>
+                            <p>• Executed database maintenance tasks, including backups, updates, and performance tuning using MySQL.</p>
+                            <p>• Created and executed functional test scripts and designed test scenarios.</p>
+                        </div>
+                        <button class="text-xs font-bold text-indigo-400 uppercase tracking-widest hover:text-white transition-colors focus:outline-none toggle-btn">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects (Zig Zag) -->
+    <section id="projects" class="py-24 bg-[#131323] px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-serif mb-16 text-center reveal-section">Featured Projects</h2>
+
+            <div class="space-y-24">
+
+                <!-- Project 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 reveal-section">
+                    <div class="md:w-1/2 order-2 md:order-1">
+                        <h3 class="text-3xl font-serif mb-2 text-white">Stock Prediction</h3>
+                        <p class="text-xs text-[#bbbdf6] font-bold uppercase tracking-wider mb-6">Python | TensorFlow | ML</p>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Leveraged historical stock data to predict future prices using machine learning. Utilized the yfinance library for data extraction and Scikit-Learn/TensorFlow for creating predictive models (Linear Regression) to analyze market trends.
+                        </p>
+                        <a href="https://github.com/TridhaMukherjee" target="_blank" class="inline-flex items-center px-6 py-3 border border-indigo-500 rounded-full text-white hover:bg-indigo-500 hover:text-white transition-all">
+                            View Code <i class="fab fa-github ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2">
+                        <div class="relative overflow-hidden rounded-2xl aspect-video border border-white/10 group">
+                            <img src="Imagesdigitslresum\stockanalysis.png"
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Stock Market">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 reveal-section">
+                    <div class="md:w-1/2 order-1">
+                        <div class="relative overflow-hidden rounded-2xl aspect-video border border-white/10 group">
+                            <img src="Imagesdigitslresum\amazonpricetracker.jpg"
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Amazon Scraper">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-2">
+                        <h3 class="text-3xl font-serif mb-2 text-white">Amazon Price Tracker</h3>
+                        <p class="text-xs text-[#bbbdf6] font-bold uppercase tracking-wider mb-6">Python | BeautifulSoup | SMTP</p>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Designed an automated web scraping tool that monitors product prices on Amazon. The script checks prices at periodic intervals and triggers email notifications via SMTP when prices drop below a user-defined threshold.
+                        </p>
+                        <a href="https://github.com/TridhaMukherjee" target="_blank" class="inline-flex items-center px-6 py-3 border border-indigo-500 rounded-full text-white hover:bg-indigo-500 hover:text-white transition-all">
+                            View Code <i class="fab fa-github ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 reveal-section">
+                    <div class="md:w-1/2 order-2 md:order-1">
+                        <h3 class="text-3xl font-serif mb-2 text-white">COVID-19 Analysis</h3>
+                        <p class="text-xs text-[#bbbdf6] font-bold uppercase tracking-wider mb-6">SQL Server | Data Mining</p>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Analyzed global COVID-19 datasets (cases, deaths, vaccinations) using complex SQL queries. Extracted critical insights regarding infection rates and vaccination progress to support data-driven health reporting.
+                        </p>
+                        <a href="https://github.com/TridhaMukherjee" target="_blank" class="inline-flex items-center px-6 py-3 border border-indigo-500 rounded-full text-white hover:bg-indigo-500 hover:text-white transition-all">
+                            View Code <i class="fab fa-github ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2">
+                        <div class="relative overflow-hidden rounded-2xl aspect-video border border-white/10 group">
+                            <img src="Imagesdigitslresum\omicron.png"
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Covid SQL">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Soap Bubble) -->
+    <section id="contact" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center z-10 relative">
+
+            <div class="reveal-section mb-10">
+                <h2 class="text-5xl font-serif text-white">Let's Connect</h2>
+            </div>
+
+            <!-- The Soap Bubble Container -->
+            <div class="reveal-section shape-bubble p-10 md:p-20 mx-auto max-w-2xl relative z-20">
+
+                <form id="contactForm" class="space-y-6 text-left max-w-md mx-auto relative z-20">
+                    <div>
+                        <label class="text-xs uppercase tracking-widest text-indigo-200 ml-2">Name</label>
+                        <input type="text" id="name" class="bubble-input mt-2" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase tracking-widest text-indigo-200 ml-2">Email</label>
+                        <input type="email" id="email" class="bubble-input mt-2" placeholder="Your Email" required>
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase tracking-widest text-indigo-200 ml-2">Message</label>
+                        <textarea id="message" rows="3" class="bubble-input resize-none mt-2" placeholder="How can I help you?" required></textarea>
+                    </div>
+                    <div class="text-center pt-6">
+                        <button type="submit" id="submitBtn" class="px-10 py-3 bg-white text-indigo-950 font-bold rounded-full hover:scale-110 transition-transform shadow-lg flex items-center justify-center mx-auto gap-2">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <!-- Success Message -->
+                    <div id="successMessage" class="hidden text-center text-emerald-300 font-bold mt-4">
+                        Message sent successfully!
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="text-center mt-20 text-gray-600 text-xs uppercase tracking-widest">
+            &copy; 2025 Tridha Mukherjee. All Rights Reserved.
+        </footer>
+    </section>
+
+    <!-- JS for Animations & Logic -->
+    <script>
+        // --- Animation Logic (Intersection Observer) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const hiddenElements = document.querySelectorAll('.reveal-section, .stagger-parent');
+            hiddenElements.forEach((el) => observer.observe(el));
+
+            // Navbar scroll effect
+            const nav = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('py-4', 'bg-black/50', 'backdrop-blur-md');
+                    nav.classList.remove('py-6', 'mix-blend-difference');
+                } else {
+                    nav.classList.add('py-6', 'mix-blend-difference');
+                    nav.classList.remove('py-4', 'bg-black/50', 'backdrop-blur-md');
+                }
+            });
+
+            // Read More / Less Logic
+            const toggleButtons = document.querySelectorAll('.toggle-btn');
+            toggleButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const details = btn.previousElementSibling;
+                    details.classList.toggle('expanded');
+
+                    if (details.classList.contains('expanded')) {
+                        btn.textContent = 'Read Less';
+                    } else {
+                        btn.textContent = 'Read More';
+                    }
+                });
+            });
+
+            // --- Mock Form Submission Logic (Offline Compatible) ---
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Mock Loading State
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+
+                    // Simulate Network Request
+                    setTimeout(() => {
+                        successMessage.classList.remove('hidden');
+                        contactForm.reset();
+
+                        setTimeout(() => {
+                            successMessage.classList.add('hidden');
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
